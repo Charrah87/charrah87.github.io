@@ -4,19 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cory Harrah | Senior Product Manager</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --bg: #f9f5ee;
-      --surface: #f2ebe0;
-      --card: #fffdf8;
-      --accent: #a84d1a;
-      --accent2: #c97d4e;
-      --accent3: #3b5249;
-      --text: #1c1712;
-      --muted: #7d7060;
-      --border: rgba(120,80,40,0.13);
-      --shadow: rgba(100,55,20,0.08);
+      --bg:         #0f0d0b;
+      --surface:    #141210;
+      --card:       #1b1814;
+      --card2:      #221e19;
+      --copper:     #c87941;
+      --copper2:    #e09558;
+      --copper-dim: rgba(200,121,65,0.11);
+      --warm-white: #f2e8dc;
+      --text:       #e8ddd0;
+      --muted:      #877060;
+      --muted2:     #463c32;
+      --border:     rgba(200,121,65,0.09);
+      --border2:    rgba(200,121,65,0.26);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,7 +28,7 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Jost', sans-serif;
+      font-family: 'Instrument Sans', sans-serif;
       font-size: 15px;
       line-height: 1.8;
       overflow-x: hidden;
@@ -39,168 +42,142 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.1rem 5rem;
-      background: rgba(249,245,238,0.95);
-      backdrop-filter: blur(14px);
+      padding: 1.1rem 4.5rem;
+      background: rgba(15,13,11,0.93);
+      backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
     }
     .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 700;
-      font-size: 1.4rem;
-      color: var(--accent);
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: var(--warm-white);
       text-decoration: none;
-      letter-spacing: 0.03em;
     }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+    .nav-logo span { color: var(--copper); }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 500;
       letter-spacing: 0.07em;
       text-transform: uppercase;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover { color: var(--copper2); }
     .nav-cta {
-      background: var(--accent) !important;
-      color: #fff !important;
-      padding: 0.5rem 1.4rem !important;
+      background: var(--copper) !important;
+      color: #0f0d0b !important;
+      padding: 0.48rem 1.25rem !important;
       border-radius: 3px;
       font-weight: 600 !important;
     }
-    .nav-cta:hover { background: #8c3e12 !important; }
+    .nav-cta:hover { background: var(--copper2) !important; }
     .nav-resume {
       background: transparent !important;
-      color: var(--accent) !important;
-      padding: 0.45rem 1.1rem !important;
-      border: 1.5px solid var(--accent) !important;
+      color: var(--copper) !important;
+      padding: 0.44rem 1.1rem !important;
+      border: 1px solid var(--border2) !important;
       border-radius: 3px;
-      font-weight: 600 !important;
-      transition: background 0.2s, color 0.2s !important;
     }
-    .nav-resume:hover { background: var(--accent) !important; color: #fff !important; }
+    .nav-resume:hover { background: var(--copper-dim) !important; }
 
     /* ── HERO ── */
     #hero {
       min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
       align-items: center;
-      padding: 0;
+      padding: 9rem 4.5rem 6rem;
       position: relative;
       overflow: hidden;
     }
-
-    .hero-left {
-      padding: 9rem 4rem 5rem 5rem;
-      background: var(--accent3);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-    }
-
-    .hero-left::after {
-      content: '';
+    .hero-glow {
       position: absolute;
-      top: 0; right: -60px;
-      width: 120px; height: 100%;
-      background: var(--accent3);
-      clip-path: polygon(0 0, 50% 0, 100% 50%, 50% 100%, 0 100%);
-      z-index: 2;
+      top: -10%; left: -8%;
+      width: 75vw; height: 75vw;
+      max-width: 850px; max-height: 850px;
+      background: radial-gradient(ellipse, rgba(200,121,65,0.055) 0%, transparent 62%);
+      pointer-events: none;
     }
-
-    .hero-right {
-      padding: 9rem 5rem 5rem 5rem;
-      background: var(--bg);
-      height: 100%;
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+    .hero-eyebrow {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .hero-label {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 1.5rem;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 2rem;
       animation: fadeUp 0.7s ease both;
     }
-
+    .hero-dot {
+      width: 7px; height: 7px;
+      background: var(--copper);
+      border-radius: 50%;
+      animation: breathe 3s ease-in-out infinite;
+    }
+    @keyframes breathe { 0%,100%{opacity:1} 50%{opacity:0.35} }
+    .hero-eyebrow span {
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
     h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.5rem, 5.5vw, 5.5rem);
-      font-weight: 700;
-      line-height: 1.05;
-      color: #fff;
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 6vw, 5.6rem);
+      font-weight: 400;
+      line-height: 1.07;
+      letter-spacing: -0.015em;
+      color: var(--warm-white);
+      margin-bottom: 1.8rem;
       animation: fadeUp 0.7s 0.1s ease both;
     }
-
-    h1 em {
-      font-style: italic;
-      color: rgba(255,255,255,0.55);
-      display: block;
-      font-size: 0.85em;
-    }
-
-    .hero-divider {
-      width: 48px;
-      height: 2px;
-      background: var(--accent2);
-      margin: 2rem 0;
+    h1 em { font-style: italic; color: var(--copper); }
+    .hero-bio {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 600px;
+      line-height: 1.88;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
       animation: fadeUp 0.7s 0.2s ease both;
     }
-
-    .hero-tagline {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.85;
-      max-width: 380px;
-      font-weight: 300;
-      animation: fadeUp 0.7s 0.3s ease both;
-    }
-
-    .hero-tagline strong { color: #fff; font-weight: 500; }
-
+    .hero-bio strong { color: var(--text); font-weight: 500; }
     .hero-cta {
       display: flex;
       gap: 1rem;
-      margin-top: 2.5rem;
-      animation: fadeUp 0.7s 0.4s ease both;
+      flex-wrap: wrap;
+      animation: fadeUp 0.7s 0.3s ease both;
     }
-
     .btn-primary {
-      background: var(--accent2);
-      color: #fff;
-      font-family: 'Jost', sans-serif;
+      background: var(--copper);
+      color: #0f0d0b;
+      font-family: 'Instrument Sans', sans-serif;
       font-weight: 600;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 0.85rem 2rem;
+      padding: 0.9rem 2.2rem;
       border: none;
       cursor: pointer;
       text-decoration: none;
       border-radius: 3px;
-      transition: background 0.2s, transform 0.2s;
+      transition: background 0.2s, transform 0.15s;
       display: inline-block;
     }
-    .btn-primary:hover { background: #b06035; transform: translateY(-2px); }
-
+    .btn-primary:hover { background: var(--copper2); transform: translateY(-2px); }
     .btn-ghost {
       background: transparent;
-      color: rgba(255,255,255,0.75);
-      font-family: 'Jost', sans-serif;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
+      color: var(--muted);
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 0.85rem 2rem;
-      border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.9rem 2.2rem;
+      border: 1px solid var(--muted2);
       cursor: pointer;
       text-decoration: none;
       border-radius: 3px;
@@ -208,478 +185,493 @@
       display: inline-block;
       font-weight: 500;
     }
-    .btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
-
-    /* Photo */
-    /* Right side photo + quick facts */
-    .hero-photo-wrap {
-      display: flex;
-      margin-bottom: 2rem;
-      animation: fadeUp 0.7s 0.15s ease both;
-    }
-    .hero-photo {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center top;
-      border: 4px solid var(--card);
-      box-shadow: 0 6px 28px rgba(100,55,20,0.18);
-    }
-    .hero-right-label {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 2rem;
-      animation: fadeUp 0.7s 0.2s ease both;
-    }
-
-    .hero-facts {
-      display: grid;
-      gap: 1.25rem;
-      animation: fadeUp 0.7s 0.3s ease both;
-    }
-
-    .fact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 1.1rem 1.25rem;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      border-left: 3px solid var(--accent2);
-      box-shadow: 0 2px 10px var(--shadow);
-    }
-
-    .fact-icon { font-size: 1.2rem; margin-top: 0.1rem; }
-    .fact-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--accent);
-      line-height: 1;
-    }
-    .fact-label {
-      font-size: 0.75rem;
-      color: var(--muted);
-      font-weight: 400;
-      margin-top: 0.15rem;
+    .btn-ghost:hover { border-color: var(--border2); color: var(--copper); }
+    .hero-rule {
+      position: absolute;
+      bottom: 0; left: 4.5rem; right: 4.5rem;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border2), transparent 55%);
     }
 
     /* ── SECTIONS ── */
-    section { padding: 6rem 5rem; position: relative; }
-
-    .section-eyebrow {
+    section { padding: 6rem 4.5rem; position: relative; z-index: 1; }
+    .eyebrow {
       display: flex;
       align-items: center;
-      gap: 0.85rem;
-      margin-bottom: 0.6rem;
+      gap: 0.75rem;
+      margin-bottom: 0.7rem;
     }
-    .section-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--accent); flex-shrink: 0; }
-    .section-eyebrow span {
-      font-size: 0.7rem;
+    .eyebrow::before { content: ''; width: 18px; height: 1px; background: var(--copper); flex-shrink: 0; }
+    .eyebrow span {
+      font-size: 0.68rem;
       font-weight: 600;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--copper);
     }
-
     h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+      font-weight: 400;
       line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--warm-white);
       margin-bottom: 3rem;
-      color: var(--text);
     }
+    h2 em { font-style: italic; color: var(--copper); }
 
     /* ── ABOUT ── */
     #about { background: var(--surface); border-top: 1px solid var(--border); }
-
-    .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 5rem; align-items: start; }
-
-    .about-text p { color: var(--muted); margin-bottom: 1rem; font-weight: 400; font-size: 0.95rem; }
-    .about-text p strong { color: var(--text); font-weight: 600; }
-
-    .skills-grid { display: grid; gap: 1.1rem; }
-
-    .skill-cat {
+    .about-layout { display: grid; grid-template-columns: 1.25fr 1fr; gap: 5rem; align-items: start; }
+    .about-text p { color: var(--muted); margin-bottom: 1.1rem; font-weight: 300; font-size: 0.97rem; line-height: 1.9; }
+    .about-text p strong { color: var(--text); font-weight: 500; }
+    .pull-quote {
+      border-left: 2px solid var(--copper);
+      padding: 0.4rem 0 0.4rem 1.4rem;
+      margin: 1.8rem 0;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      line-height: 1.65;
+      color: var(--text);
+      font-style: italic;
+    }
+    .skills-wrap { display: grid; gap: 0.6rem; }
+    .skill-row {
       background: var(--card);
       border: 1px solid var(--border);
-      border-top: 3px solid var(--accent2);
-      padding: 1.25rem 1.5rem;
       border-radius: 4px;
-      box-shadow: 0 3px 12px var(--shadow);
+      padding: 0.85rem 1.15rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: border-color 0.2s;
     }
-    .skill-cat h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-      letter-spacing: 0.02em;
+    .skill-row:hover { border-color: var(--border2); }
+    .skill-row-label {
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--copper);
+      min-width: 70px;
+      padding-top: 0.15rem;
+      flex-shrink: 0;
     }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.32rem; }
     .tag {
       font-size: 0.7rem;
-      padding: 0.22rem 0.65rem;
-      border: 1px solid var(--border);
+      padding: 0.16rem 0.5rem;
+      border: 1px solid var(--muted2);
       color: var(--muted);
       border-radius: 2px;
-      background: var(--surface);
+      background: transparent;
+      font-weight: 400;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .tag.warm {
+      color: var(--copper);
+      border-color: var(--border2);
+      background: var(--copper-dim);
       font-weight: 500;
     }
 
-    /* ── EXPERIENCE ── */
-    #experience { border-top: 1px solid var(--border); background: var(--bg); }
-    .exp-list { display: grid; gap: 1.75rem; }
+    /* ── AI SECTION ── */
+    #ai-workflow { background: var(--bg); border-top: 1px solid var(--border); }
+    .ai-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .ai-statement {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      line-height: 1.55;
+      color: var(--warm-white);
+      margin-bottom: 1.4rem;
+      font-style: italic;
+    }
+    .ai-statement em { color: var(--copper); font-style: normal; }
+    .ai-body { color: var(--muted); font-size: 0.95rem; line-height: 1.9; font-weight: 300; }
+    .ai-body strong { color: var(--text); font-weight: 500; }
+    .building-bar {
+      margin-top: 2rem;
+      padding: 1.3rem 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: 4px;
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+    .building-pill {
+      background: var(--copper-dim);
+      border: 1px solid var(--border2);
+      border-radius: 2px;
+      padding: 0.28rem 0.7rem;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--copper);
+      white-space: nowrap;
+      margin-top: 0.1rem;
+    }
+    .building-body { font-size: 0.87rem; color: var(--muted); font-weight: 300; line-height: 1.7; }
+    .building-body strong { color: var(--text); font-weight: 500; }
+    .ai-cards { display: grid; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 5px; overflow: hidden; }
+    .ai-card {
+      background: var(--card);
+      padding: 1.3rem 1.5rem;
+      display: flex;
+      gap: 1.1rem;
+      align-items: flex-start;
+      transition: background 0.2s;
+    }
+    .ai-card:hover { background: var(--card2); }
+    .ai-card-icon {
+      width: 32px; height: 32px;
+      border: 1px solid var(--border2);
+      border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      background: var(--copper-dim);
+    }
+    .ai-card-title { font-size: 0.83rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem; }
+    .ai-card-desc { font-size: 0.77rem; color: var(--muted); font-weight: 300; line-height: 1.65; }
 
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--surface); border-top: 1px solid var(--border); }
+    .exp-list { display: grid; gap: 2rem; }
     .exp-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 6px;
-      padding: 2.25rem 2.5rem;
-      box-shadow: 0 3px 18px var(--shadow);
-      transition: box-shadow 0.3s, transform 0.3s;
-      position: relative;
+      padding: 2.2rem 2.4rem;
+      transition: border-color 0.3s;
     }
-    .exp-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2), transparent);
-      border-radius: 6px 6px 0 0;
-    }
-    .exp-card:hover { box-shadow: 0 10px 36px rgba(100,55,20,0.13); transform: translateY(-3px); }
-
+    .exp-card:hover { border-color: var(--border2); }
     .exp-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.2rem;
       flex-wrap: wrap;
       gap: 0.5rem;
     }
     .exp-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--text);
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--warm-white);
+      letter-spacing: -0.01em;
     }
     .exp-date {
-      font-size: 0.72rem;
-      color: var(--accent);
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      background: rgba(168,77,26,0.08);
-      padding: 0.25rem 0.8rem;
-      border-radius: 2px;
-      white-space: nowrap;
-    }
-    .exp-company {
-      font-size: 0.8rem;
-      color: var(--muted);
+      font-size: 0.7rem;
+      color: var(--copper);
       font-weight: 500;
-      margin-bottom: 1.4rem;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.07em;
+      background: var(--copper-dim);
+      border: 1px solid var(--border2);
+      padding: 0.2rem 0.65rem;
+      border-radius: 2px;
     }
-    .exp-bullets { list-style: none; display: grid; gap: 0.6rem; }
+    .exp-company { font-size: 0.77rem; color: var(--muted); font-weight: 400; margin-bottom: 0.6rem; }
+    .exp-summary {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    /* Stats — subtle inline details within each role */
+    .exp-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .stat-chip {
+      background: transparent;
+      border: 1px solid var(--muted2);
+      border-radius: 2px;
+      padding: 0.3rem 0.75rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+    .stat-chip-num {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1;
+    }
+    .stat-chip-label { font-size: 0.7rem; color: var(--muted); font-weight: 300; }
+
+    .exp-bullets { list-style: none; display: grid; gap: 0.5rem; }
     .exp-bullets li {
       color: var(--muted);
-      font-size: 0.88rem;
-      padding-left: 1.4rem;
+      font-size: 0.87rem;
+      padding-left: 1.2rem;
       position: relative;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+    .exp-bullets li::before { content: '–'; position: absolute; left: 0; color: var(--copper); }
+    .exp-bullets li strong { color: var(--text); font-weight: 500; }
+    .exp-tags {
+      display: flex; flex-wrap: wrap; gap: 0.38rem;
+      margin-top: 1.4rem; padding-top: 1.4rem;
+      border-top: 1px solid var(--border);
+    }
+    .exp-tag {
+      font-size: 0.66rem;
+      padding: 0.16rem 0.55rem;
+      background: transparent;
+      border: 1px solid var(--muted2);
+      color: var(--muted);
+      border-radius: 2px;
       font-weight: 400;
     }
-    .exp-bullets li::before { content: '–'; position: absolute; left: 0; color: var(--accent2); font-weight: 700; }
-    .exp-bullets li strong { color: var(--text); font-weight: 600; }
-
-    .exp-sub-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin: 1.2rem 0 0.6rem;
-    }
-
-    .exp-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
-    .exp-tag {
-      font-size: 0.68rem;
-      padding: 0.25rem 0.7rem;
-      background: rgba(168,77,26,0.07);
-      border: 1px solid rgba(168,77,26,0.18);
-      color: var(--accent);
-      border-radius: 2px;
-      font-weight: 600;
-    }
-
-    .add-exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
-    .add-exp-card {
-      border: 1px solid var(--border);
-      padding: 1.25rem 1.5rem;
-      background: var(--card);
-      border-radius: 4px;
-      box-shadow: 0 2px 8px var(--shadow);
-    }
-    .add-exp-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; color: var(--text); }
-    .add-exp-card span { font-size: 0.75rem; color: var(--muted); }
+    .add-exp-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
+    .add-exp-card { border: 1px solid var(--border); padding: 1.1rem 1.4rem; background: var(--card); border-radius: 4px; }
+    .add-exp-card h4 { font-family: 'DM Serif Display', serif; font-size: 0.95rem; font-weight: 400; margin-bottom: 0.2rem; color: var(--text); }
+    .add-exp-card span { font-size: 0.72rem; color: var(--muted); }
 
     /* ── EDUCATION ── */
-    #education { border-top: 1px solid var(--border); background: var(--surface); }
-    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    #education { background: var(--bg); border-top: 1px solid var(--border); }
+    .edu-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
     .edu-card {
       background: var(--card);
       border: 1px solid var(--border);
-      padding: 2rem 2.25rem;
+      border-bottom: 2px solid var(--copper);
+      padding: 1.7rem 2rem;
       border-radius: 6px;
-      box-shadow: 0 3px 12px var(--shadow);
       display: flex;
-      align-items: flex-start;
-      gap: 1.25rem;
-      border-bottom: 3px solid var(--accent2);
+      align-items: center;
+      gap: 1.2rem;
     }
-    .edu-icon { font-size: 1.75rem; margin-top: 0.1rem; }
-    .edu-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
-    .edu-card p { font-size: 0.8rem; color: var(--muted); font-weight: 500; }
+    .edu-icon { font-size: 1.4rem; }
+    .edu-card h4 { font-family: 'DM Serif Display', serif; font-size: 1rem; font-weight: 400; color: var(--warm-white); margin-bottom: 0.2rem; }
+    .edu-card p { font-size: 0.77rem; color: var(--muted); }
 
-    /* ── HOBBIES ── */
-    #hobbies { border-top: 1px solid var(--border); background: var(--bg); }
-    .hobbies-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
-    .hobby-card {
+    /* ── PERSONALITY ── */
+    #personality { background: var(--surface); border-top: 1px solid var(--border); }
+    .personality-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; }
+    .p-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 6px;
-      padding: 1.75rem 2rem;
-      box-shadow: 0 3px 12px var(--shadow);
-      display: flex;
-      align-items: flex-start;
-      gap: 1.1rem;
-      transition: transform 0.2s, box-shadow 0.2s;
+      padding: 1.7rem;
+      transition: border-color 0.2s;
     }
-    .hobby-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(100,55,20,0.1); }
-    .hobby-icon { font-size: 1.75rem; flex-shrink: 0; }
-    .hobby-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
-    .hobby-card p { font-size: 0.82rem; color: var(--muted); font-weight: 400; line-height: 1.7; }
+    .p-card:hover { border-color: var(--border2); }
+    .p-icon { font-size: 1.5rem; margin-bottom: 0.9rem; }
+    .p-card h4 { font-family: 'DM Serif Display', serif; font-size: 0.95rem; font-weight: 400; color: var(--warm-white); margin-bottom: 0.45rem; }
+    .p-card p { font-size: 0.81rem; color: var(--muted); font-weight: 300; line-height: 1.75; }
 
     /* ── CONTACT ── */
-    #contact { border-top: 1px solid var(--border); background: var(--accent3); }
-    #contact .section-eyebrow::before { background: rgba(255,255,255,0.3); }
-    #contact .section-eyebrow span { color: rgba(255,255,255,0.55); }
-    #contact h2 { color: #fff; }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-    .contact-intro { font-size: 1rem; color: rgba(255,255,255,0.72); line-height: 1.9; }
-    .contact-intro strong { color: #fff; font-weight: 600; }
-    .form-group { margin-bottom: 1.25rem; }
+    #contact { background: var(--bg); border-top: 1px solid var(--border); }
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .contact-intro { font-size: 0.97rem; color: var(--muted); line-height: 1.9; font-weight: 300; }
+    .contact-intro strong { color: var(--text); font-weight: 500; }
+    .contact-links { display: grid; gap: 0.7rem; margin-top: 2rem; }
+    .contact-item {
+      display: flex; align-items: center; gap: 1.2rem;
+      padding: 1rem 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .contact-item:hover { border-color: var(--border2); background: var(--card2); }
+    .contact-icon { font-size: 1rem; width: 1.8rem; text-align: center; }
+    .contact-label { font-size: 0.63rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.1rem; font-weight: 600; }
+    .contact-value { font-size: 0.87rem; color: var(--text); }
+    .form-group { margin-bottom: 1.1rem; }
     .form-group label {
       display: block;
-      font-size: 0.72rem;
+      font-size: 0.65rem;
       font-weight: 600;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      margin-bottom: 0.5rem;
+      color: var(--muted);
+      margin-bottom: 0.44rem;
     }
-    .form-group input,
-    .form-group textarea {
+    .form-group input, .form-group textarea {
       width: 100%;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 4px;
       padding: 0.85rem 1rem;
-      color: #fff;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.88rem;
+      color: var(--text);
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.9rem;
       transition: border-color 0.2s;
       resize: vertical;
     }
-    .form-group input::placeholder,
-    .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--accent2);
-    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--muted2); }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--border2); background: var(--card2); }
     .form-btn {
-      background: var(--accent2);
-      color: #fff;
-      font-family: 'Jost', sans-serif;
+      background: var(--copper);
+      color: #0f0d0b;
+      font-family: 'Instrument Sans', sans-serif;
       font-weight: 600;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       padding: 0.9rem 2.2rem;
       border: none;
       border-radius: 3px;
       cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
+      transition: background 0.2s, transform 0.15s;
       width: 100%;
     }
-    .form-btn:hover { background: #b06035; transform: translateY(-2px); }
-    .contact-links { display: grid; gap: 1rem; }
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      padding: 1.1rem 1.5rem;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 4px;
-      text-decoration: none;
-      color: #fff;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .contact-item:hover { background: rgba(255,255,255,0.13); transform: translateX(4px); }
-    .contact-icon { font-size: 1.2rem; width: 2rem; text-align: center; }
-    .contact-label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 0.1rem; }
-    .contact-value { font-size: 0.9rem; color: #fff; font-weight: 500; }
+    .form-btn:hover { background: var(--copper2); transform: translateY(-2px); }
 
     /* ── FOOTER ── */
     footer {
-      background: #18130e;
-      padding: 2rem 5rem;
+      background: #090806;
+      padding: 2rem 4.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.3);
+      font-size: 0.72rem;
+      color: var(--muted2);
       letter-spacing: 0.05em;
+      border-top: 1px solid var(--border);
     }
+    .footer-accent { color: var(--copper); }
 
     /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .reveal { opacity: 1; transform: translateY(0); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.animate { opacity: 0; transform: translateY(28px); }
-    .reveal.animate.visible { opacity: 1; transform: translateY(0); }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+    .reveal { opacity:1; transform:translateY(0); transition: opacity 0.75s ease, transform 0.75s ease; }
+    .reveal.animate { opacity:0; transform:translateY(26px); }
+    .reveal.animate.visible { opacity:1; transform:translateY(0); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
       nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.2rem; }
-      #hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left { padding: 8rem 1.5rem 3rem; }
-      .hero-left::after { display: none; }
-      .hero-right { padding: 3rem 1.5rem 4rem; }
+      #hero { padding: 8rem 1.5rem 4rem; }
       section { padding: 4rem 1.5rem; }
-      .about-grid, .contact-grid, .edu-grid, .hobbies-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .add-exp-grid { grid-template-columns: 1fr; }
+      .about-layout, .ai-layout, .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .edu-row, .personality-grid, .add-exp-row { grid-template-columns: 1fr; }
       footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
-    <a class="nav-logo" href="#hero">Cory Harrah</a>
+    <a class="nav-logo" href="#hero">Cory <span>Harrah</span></a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#ai-workflow">AI Workflow</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#hobbies">Hobbies</a></li>
       <li><a href="#contact" class="nav-cta">Contact</a></li>
       <li><a href="CoryHarrahResume.pdf" target="_blank" class="nav-resume">Resume ↓</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO — about you, not your stats -->
   <section id="hero">
-    <div class="hero-left">
-      <div class="hero-label">Based in Hayward, CA · Open to Opportunities</div>
-      <h1>
-        Cory Harrah
-        <em>Senior Product Manager</em>
-      </h1>
-      <div class="hero-divider"></div>
-      <p class="hero-tagline">
-        I build <strong>enterprise API platforms</strong> that power national brands at scale —
-        combining deep technical roots with strategic product leadership.
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <div class="hero-dot"></div>
+        <span>Open to Opportunities &nbsp;·&nbsp; Hayward, CA</span>
+      </div>
+      <h1>Senior Product<br>Manager &amp; <em>Platform<br>Strategist.</em></h1>
+      <p class="hero-bio">
+        Nine years growing from production support to platform ownership. I lead with <strong>technical depth, a builder's instinct, and a relentless bias toward shipping.</strong> My teams deliver early, my platforms scale cleanly, and I thrive in organizations where AI is fundamentally changing how work gets done — not just what tools are in the stack.
       </p>
       <div class="hero-cta">
-        <a href="#experience" class="btn-primary">View My Work</a>
+        <a href="#experience" class="btn-primary">See My Work</a>
         <a href="#contact" class="btn-ghost">Get In Touch</a>
       </div>
     </div>
-    <div class="hero-right">
-      <div class="hero-photo-wrap">
-        <img src="ProfPhoto.JPEG" alt="Cory Harrah" class="hero-photo" />
+    <div class="hero-rule"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="eyebrow"><span>About Me</span></div>
+    <h2>Built from the <em>ground up.</em></h2>
+    <div class="about-layout">
+      <div class="about-text reveal">
+        <p>I'm a <strong>Senior Product Manager</strong> specializing in enterprise API platforms, backend data systems, and high-throughput infrastructure. My career arc is unusual — I didn't start in product. I started in production support, troubleshooting API failures, repairing broken data pipelines, and managing P1 incidents. That foundation shaped everything.</p>
+        <p>I don't just translate business needs into tickets. I understand the systems well enough to <strong>know when the system itself is the problem</strong> — and to make the call that saves a quarter instead of shipping around it.</p>
+        <div class="pull-quote">"Consistently paired with the most complex team dynamics. Zero incidents. Zero drama. Every time."</div>
+        <p>My edge is operational clarity. I <strong>eliminate friction between ideas and execution</strong> — turning chaotic backlogs into high-velocity teams, and high-risk migrations into non-events.</p>
       </div>
-      <div class="hero-right-label">Platform Impact at a Glance</div>
-      <div class="hero-facts">
-        <div class="fact-item">
-          <div class="fact-icon">⚡</div>
-          <div>
-            <div class="fact-num">20M+</div>
-            <div class="fact-label">Daily API requests at &lt;200ms p95 latency</div>
+      <div class="skills-wrap reveal">
+        <div class="skill-row">
+          <div class="skill-row-label">AI Tools</div>
+          <div class="skill-tags">
+            <span class="tag warm">Claude</span>
+            <span class="tag warm">ChatGPT</span>
+            <span class="tag warm">GitHub Copilot</span>
           </div>
         </div>
-        <div class="fact-item">
-          <div class="fact-icon">💰</div>
-          <div>
-            <div class="fact-num">$1.3M</div>
-            <div class="fact-label">Operating cost savings over 3 years via vendor consolidation</div>
+        <div class="skill-row">
+          <div class="skill-row-label">Product</div>
+          <div class="skill-tags">
+            <span class="tag">Strategy & Roadmap</span><span class="tag">API Lifecycle</span><span class="tag">Business Cases</span><span class="tag">OKR / KPI</span><span class="tag">Competitive Analysis</span>
           </div>
         </div>
-        <div class="fact-item">
-          <div class="fact-icon">🏢</div>
-          <div>
-            <div class="fact-num">5</div>
-            <div class="fact-label">National real estate brands served by my platform</div>
+        <div class="skill-row">
+          <div class="skill-row-label">Execution</div>
+          <div class="skill-tags">
+            <span class="tag">Agile / Scrum</span><span class="tag">RICE & MoSCoW</span><span class="tag">Sprint Optimization</span><span class="tag">Release Planning</span><span class="tag">Risk Mitigation</span>
           </div>
         </div>
-        <div class="fact-item">
-          <div class="fact-icon">🛠</div>
-          <div>
-            <div class="fact-num">9+</div>
-            <div class="fact-label">Years growing from support engineer to Senior PM</div>
+        <div class="skill-row">
+          <div class="skill-row-label">Tech</div>
+          <div class="skill-tags">
+            <span class="tag">AWS</span><span class="tag">Datadog</span><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Postman</span><span class="tag">Snowflake</span><span class="tag">Figma</span><span class="tag">Jira</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-row-label">Leadership</div>
+          <div class="skill-tags">
+            <span class="tag">Cross-Functional Teams</span><span class="tag">Executive Comms</span><span class="tag">Vendor Negotiation</span><span class="tag">Change Management</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-eyebrow"><span>About Me</span></div>
-    <h2>Background & Skills</h2>
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <p>I'm a <strong>Senior Product Manager</strong> focused on backend systems, enterprise APIs, and large-scale data platforms.</p>
-        <p>I began my career in production support — troubleshooting API failures, debugging database inconsistencies, and writing SQL to repair data pipelines. That hands-on technical foundation shaped how I think about product: <strong>reliability first, root-cause over surface fixes, and systems that scale cleanly.</strong></p>
-        <p>Today, I lead product strategy for high-throughput API platforms serving national real estate brands. The systems I own handle <strong>20M+ daily requests</strong> at sub-200ms p95 latency. I work closely with engineering on architecture decisions, observability, vendor integrations, and performance optimization — while translating business needs into clear, executable roadmaps.</p>
-        <p>I'm most effective at the intersection of <strong>platform reliability, data integrity, and measurable business impact.</strong></p>
+  <!-- AI WORKFLOW -->
+  <section id="ai-workflow">
+    <div class="eyebrow"><span>AI-Native Approach</span></div>
+    <h2>AI isn't a tool I use.<br><em>It's how I work.</em></h2>
+    <div class="ai-layout">
+      <div>
+        <p class="ai-statement">The best product orgs in the next five years won't just adopt AI tools — they'll redesign how teams <em>think, plan, and ship</em> around AI capabilities.</p>
+        <p class="ai-body">I use <strong>Claude, ChatGPT, and Copilot</strong> daily — across PRD drafting, feature design, sprint planning, data consistency checks, and documentation. AI eliminates the friction between having an idea and turning it into something your engineers can act on today.</p>
+        <p class="ai-body" style="margin-top:1rem;">I'm targeting companies where AI adoption is a <strong>competitive operating decision</strong> — not a checkbox or a chatbot tacked onto an existing workflow.</p>
+        <div class="building-bar">
+          <div class="building-pill">🔧 Building</div>
+          <div class="building-body"><strong>AI-Powered Video Editor</strong> — an application built with Claude that ingests source video and music files and autonomously generates effects-enhanced, YouTube-ready montages. Real AI product development from concept to working software.</div>
+        </div>
       </div>
-      <div class="skills-grid reveal">
-        <div class="skill-cat">
-          <h4>Product</h4>
-          <div class="skill-tags">
-            <span class="tag">Product Strategy</span><span class="tag">Roadmap Prioritization</span><span class="tag">Product Lifecycle</span><span class="tag">Business Case Dev</span><span class="tag">Competitive Analysis</span>
-          </div>
+      <div class="ai-cards reveal">
+        <div class="ai-card">
+          <div class="ai-card-icon">📋</div>
+          <div><div class="ai-card-title">PRD & Documentation</div><div class="ai-card-desc">Draft, iterate, and sharpen product requirements — reducing cycle time from days to hours without losing precision.</div></div>
         </div>
-        <div class="skill-cat">
-          <h4>Leadership</h4>
-          <div class="skill-tags">
-            <span class="tag">Executive Communication</span><span class="tag">Stakeholder Alignment</span><span class="tag">Conflict Resolution</span><span class="tag">Change Management</span>
-          </div>
+        <div class="ai-card">
+          <div class="ai-card-icon">🗓️</div>
+          <div><div class="ai-card-title">Sprint Planning</div><div class="ai-card-desc">AI-assisted backlog refinement and capacity modeling — the discipline behind taking a team from 30 to 60+ story points.</div></div>
         </div>
-        <div class="skill-cat">
-          <h4>Technology</h4>
-          <div class="skill-tags">
-            <span class="tag">Jira</span><span class="tag">Tableau</span><span class="tag">Figma</span><span class="tag">Postman</span><span class="tag">Snowflake</span><span class="tag">Datadog</span><span class="tag">SQL</span><span class="tag">Studio 3T</span>
-          </div>
+        <div class="ai-card">
+          <div class="ai-card-icon">🔍</div>
+          <div><div class="ai-card-title">Feature Design</div><div class="ai-card-desc">Rapidly prototype feature logic and data models — closing the gap between idea and engineering-ready spec.</div></div>
         </div>
-        <div class="skill-cat">
-          <h4>Execution</h4>
-          <div class="skill-tags">
-            <span class="tag">Agile / Scrum</span><span class="tag">RICE & MoSCoW</span><span class="tag">OKRs & KPIs</span><span class="tag">A/B Testing</span><span class="tag">Release Planning</span>
-          </div>
+        <div class="ai-card">
+          <div class="ai-card-icon">🏗️</div>
+          <div><div class="ai-card-title">Independent Development</div><div class="ai-card-desc">This site was built end-to-end using Claude as a development collaborator — concept to production, no outside help.</div></div>
         </div>
       </div>
     </div>
@@ -687,8 +679,8 @@
 
   <!-- EXPERIENCE -->
   <section id="experience">
-    <div class="section-eyebrow"><span>Work History</span></div>
-    <h2>Where I've Made an Impact</h2>
+    <div class="eyebrow"><span>Work History</span></div>
+    <h2>Where I've <em>made an impact.</em></h2>
     <div class="exp-list">
 
       <div class="exp-card reveal">
@@ -696,59 +688,46 @@
           <div class="exp-title">Senior Product Manager</div>
           <div class="exp-date">2023 — 2026</div>
         </div>
-        <div class="exp-company">Anywhere Real Estate (formerly Realogy) · Hayward, CA</div>
+        <div class="exp-company">Anywhere Real Estate (formerly Realogy) · Hayward, CA · AWS</div>
+        <p class="exp-summary">Owned full product strategy, roadmap, and execution for a mission-critical enterprise API platform serving five national real estate brands. Led a cross-functional squad of 10 (2 tech leads, 8 engineers).</p>
+        <div class="exp-stats">
+          <div class="stat-chip"><div class="stat-chip-num">20M+</div><div class="stat-chip-label">Daily API requests at &lt;200ms p95</div></div>
+          <div class="stat-chip"><div class="stat-chip-num">$1.3M</div><div class="stat-chip-label">Cost savings over 3 years</div></div>
+          <div class="stat-chip"><div class="stat-chip-num">60+</div><div class="stat-chip-label">Story points/sprint (up from ~30)</div></div>
+          <div class="stat-chip"><div class="stat-chip-num">1 qtr</div><div class="stat-chip-label">Ahead of migration deadline</div></div>
+        </div>
         <ul class="exp-bullets">
-          <li>Owned product strategy and roadmap for a mission-critical enterprise API platform supporting <strong>Century21, Coldwell Banker, Sotheby's, ERA, and Better Homes & Gardens.</strong></li>
-          <li>Led a cross-functional squad of <strong>10 (2 tech leads, 8 engineers)</strong> responsible for API performance, data ingestion pipelines, and platform modernization.</li>
-        </ul>
-        <div class="exp-sub-label">Key Initiatives</div>
-        <ul class="exp-bullets">
-          <li>Scaled and maintained APIs processing <strong>20M+ daily requests</strong> with &lt;200ms p95 latency.</li>
-          <li>Directed a <strong>zero-downtime enterprise data vendor migration</strong>, completed one quarter ahead of contract deadline.</li>
-          <li>Consolidated vendor contracts and restructured packages, reducing operating costs by <strong>$1.3M over three years.</strong></li>
-          <li>Launched new API endpoints to support expanded <strong>SEO indexing and off-site search experiences.</strong></li>
-          <li>Centralized personnel and company data ingestion into platform-owned services, reducing cross-team dependencies.</li>
-          <li>Implemented <strong>Datadog observability dashboards</strong> to monitor SLAs, latency, error rates, and incident trends.</li>
-          <li>Presented quarterly roadmap strategy, KPIs, and platform performance metrics to <strong>Director-level leadership.</strong></li>
+          <li>Scaled and maintained APIs across an AWS-hosted platform serving <strong>Century21, Coldwell Banker, Sotheby's, ERA, and Better Homes & Gardens.</strong></li>
+          <li>Directed a <strong>zero-downtime data vendor migration</strong> across 5 teams — executed in a precision 5-hour window on Sept 15, 2025, a full quarter ahead of deadline.</li>
+          <li>Negotiated vendor consolidation delivering <strong>$1.3M in operating cost savings</strong> over 3 years while expanding data coverage across all brands.</li>
+          <li>Transformed a 300+ item backlog into a curated 35–45 item system — reducing sprint removals from 20+ to &lt;5 and <strong>doubling team velocity</strong> to 60+ story points per sprint.</li>
+          <li>Launched API endpoints for enhanced SEO indexing; implemented <strong>Datadog observability dashboards</strong> for SLA and latency monitoring.</li>
+          <li>Integrated <strong>Claude, ChatGPT, and Copilot</strong> into PRD authoring, feature design, and sprint planning across the full product cycle.</li>
         </ul>
         <div class="exp-tags">
-          <span class="exp-tag">API Platform</span><span class="exp-tag">Enterprise Scale</span><span class="exp-tag">Cost Optimization</span><span class="exp-tag">Vendor Negotiation</span><span class="exp-tag">Datadog</span><span class="exp-tag">SEO</span>
+          <span class="exp-tag">API Platform</span><span class="exp-tag">AWS</span><span class="exp-tag">Enterprise Scale</span><span class="exp-tag">Vendor Negotiation</span><span class="exp-tag">Datadog</span><span class="exp-tag">AI Workflow</span><span class="exp-tag">Cost Optimization</span>
         </div>
       </div>
 
       <div class="exp-card reveal">
         <div class="exp-header">
-          <div class="exp-title">Technical Product Manager</div>
-          <div class="exp-date">2022 — 2023</div>
-        </div>
-        <div class="exp-company">Anywhere Real Estate · 6 Months</div>
-        <ul class="exp-bullets">
-          <li>Managed delivery and dependency coordination across multiple engineering teams within the enterprise API and data organization.</li>
-          <li>Owned release planning, cross-team alignment, and risk mitigation for platform-level initiatives.</li>
-          <li>Led a <strong>"Designing with Support in Mind"</strong> program that used production incident data to identify systemic failure patterns, resolving <strong>35+ recurring defects</strong> and improving operational stability.</li>
-          <li>Built structured intake, triage, and prioritization frameworks to improve transparency and throughput across engineering teams.</li>
-        </ul>
-        <div class="exp-tags">
-          <span class="exp-tag">Cross-Team Coordination</span><span class="exp-tag">Risk Mitigation</span><span class="exp-tag">Systems Thinking</span><span class="exp-tag">Release Planning</span>
-        </div>
-      </div>
-
-      <div class="exp-card reveal">
-        <div class="exp-header">
-          <div class="exp-title">Success Team Manager</div>
-          <div class="exp-date">2020 — 2022</div>
+          <div class="exp-title">Technical Product Manager → Success Team Manager</div>
+          <div class="exp-date">2020 — 2023</div>
         </div>
         <div class="exp-company">Anywhere Real Estate</div>
+        <p class="exp-summary">Promoted from Manager to TPM after systematically eliminating production defects at scale. Managed delivery and dependency coordination across 2–3 engineering teams.</p>
+        <div class="exp-stats">
+          <div class="stat-chip"><div class="stat-chip-num">35+</div><div class="stat-chip-label">Systemic defects resolved</div></div>
+          <div class="stat-chip"><div class="stat-chip-num">90→30</div><div class="stat-chip-label">Daily tickets eliminated</div></div>
+          <div class="stat-chip"><div class="stat-chip-num">5d→24h</div><div class="stat-chip-label">Average resolution time</div></div>
+        </div>
         <ul class="exp-bullets">
-          <li>Led a team of <strong>L2/L3 engineers</strong> responsible for production support, API troubleshooting, and data integrity remediation.</li>
-          <li>Implemented formal SLAs (2-hour response, 24-hour action plan) and process improvements that drove significant operational gains:</li>
-          <li>Reduced daily ticket volume from <strong>90 → 30</strong> through root-cause defect elimination.</li>
-          <li>Improved average resolution time from <strong>5 days → 24 hours.</strong></li>
-          <li>Reduced listing data integrity issue resolution from <strong>1 week → under 48 hours.</strong></li>
-          <li>Built and standardized a <strong>company-wide technical knowledge base</strong> used across Product, Engineering, and Support.</li>
+          <li>Led <strong>"Designing with Support in Mind"</strong> — used production incident data to identify systemic failure patterns, resolving 35+ recurring defects and materially improving platform stability.</li>
+          <li>As Manager, implemented formal SLAs (2-hour response, 24-hour action plan) — reducing ticket volume from 90 to 30/day through <strong>root-cause elimination, not triage.</strong></li>
+          <li>Built and institutionalized a <strong>company-wide technical knowledge base</strong> adopted by Product, Engineering, and Support.</li>
         </ul>
         <div class="exp-tags">
-          <span class="exp-tag">Team Leadership</span><span class="exp-tag">SLA Management</span><span class="exp-tag">Process Improvement</span><span class="exp-tag">Knowledge Management</span>
+          <span class="exp-tag">Team Leadership</span><span class="exp-tag">Process Improvement</span><span class="exp-tag">Systems Thinking</span><span class="exp-tag">SLA Management</span><span class="exp-tag">Release Planning</span>
         </div>
       </div>
 
@@ -758,23 +737,21 @@
           <div class="exp-date">2015 — 2020</div>
         </div>
         <div class="exp-company">Anywhere Real Estate</div>
+        <p class="exp-summary">Where it all started. Built the technical foundation — in the trenches of production support — that informs every platform decision I make today.</p>
         <ul class="exp-bullets">
-          <li>Supported a customer-facing web application powering <strong>multiple national real estate brands.</strong></li>
-          <li>Troubleshot API failures, database integrity issues, frontend defects, and <strong>P1 production incidents.</strong></li>
-          <li>Wrote and modified <strong>SQL queries</strong> to correct data inconsistencies and developed custom <strong>Python scripts</strong> to automate data cleanup workflows.</li>
-          <li>Recognized as a subject matter expert and deployed during <strong>high-visibility production events.</strong></li>
-          <li>This experience built deep familiarity with distributed systems, data pipelines, and operational risk management.</li>
+          <li>Supported customer-facing applications across 4 national real estate brands — troubleshot API failures, database integrity, frontend defects, and <strong>P1 production incidents.</strong></li>
+          <li>Wrote SQL queries and Python scripts to correct data inconsistencies and automate cleanup workflows.</li>
+          <li>Authored the company-wide troubleshooting guide; <strong>recognized as SME by executive leadership</strong> and deployed on-site for high-visibility production events.</li>
         </ul>
         <div class="exp-tags">
           <span class="exp-tag">SQL</span><span class="exp-tag">Python</span><span class="exp-tag">API Troubleshooting</span><span class="exp-tag">P1 Incidents</span><span class="exp-tag">Distributed Systems</span>
         </div>
       </div>
-
     </div>
 
-    <div style="margin-top: 3.5rem;">
-      <div class="section-eyebrow" style="margin-bottom: 1.25rem;"><span>Additional Experience</span></div>
-      <div class="add-exp-grid">
+    <div style="margin-top:3rem;">
+      <div class="eyebrow" style="margin-bottom:1.2rem;"><span>Additional Experience</span></div>
+      <div class="add-exp-row">
         <div class="add-exp-card reveal"><h4>Wells Fargo</h4><span>Customer Success · 2015 (6 months)</span></div>
         <div class="add-exp-card reveal"><h4>Party City</h4><span>Assistant Manager · 2010–2015</span></div>
         <div class="add-exp-card reveal"><h4>AT&T</h4><span>Retail Sales Consultant · 2007–2009</span></div>
@@ -784,149 +761,106 @@
 
   <!-- EDUCATION -->
   <section id="education">
-    <div class="section-eyebrow"><span>Education</span></div>
-    <h2>Academic Background</h2>
-    <div class="edu-grid">
-      <div class="edu-card reveal">
-        <div class="edu-icon">🎓</div>
-        <div><h4>Associate in Science</h4><p>Chabot College · Hayward, CA</p></div>
-      </div>
-      <div class="edu-card reveal">
-        <div class="edu-icon">🎓</div>
-        <div><h4>Associate in Art</h4><p>Chabot College · Hayward, CA</p></div>
-      </div>
+    <div class="eyebrow"><span>Education</span></div>
+    <h2>Academic <em>Background</em></h2>
+    <div class="edu-row">
+      <div class="edu-card reveal"><div class="edu-icon">🎓</div><div><h4>Associate in Science</h4><p>Chabot College · Hayward, CA</p></div></div>
+      <div class="edu-card reveal"><div class="edu-icon">🎓</div><div><h4>Associate in Arts</h4><p>Chabot College · Hayward, CA</p></div></div>
     </div>
   </section>
 
-  <!-- HOBBIES -->
-  <section id="hobbies">
-    <div class="section-eyebrow"><span>Outside Work</span></div>
-    <h2>Hobbies & Interests</h2>
-    <div class="hobbies-grid">
-      <div class="hobby-card reveal">
-        <div class="hobby-icon">🎮</div>
-        <div>
-          <h4>Game Systems Design</h4>
-          <p>MMO and ARPG mechanics — class systems, scaling models, and progression design. I enjoy understanding how individual components interact at scale.</p>
-        </div>
+  <!-- PERSONALITY -->
+  <section id="personality">
+    <div class="eyebrow"><span>Outside Work</span></div>
+    <h2>What drives me <em>beyond the roadmap.</em></h2>
+    <div class="personality-grid">
+      <div class="p-card reveal">
+        <div class="p-icon">🎮</div>
+        <h4>Game Systems Design</h4>
+        <p>MMO and ARPG mechanics — class systems, scaling models, progression loops. I'm drawn to how individual components create emergent behavior at scale. Sounds a lot like platform architecture.</p>
       </div>
-      <div class="hobby-card reveal">
-        <div class="hobby-icon">🎛️</div>
-        <div>
-          <h4>Music Production</h4>
-          <p>Sound engineering and music production. Building something from nothing — a different kind of systems thinking.</p>
-        </div>
+      <div class="p-card reveal">
+        <div class="p-icon">🎛️</div>
+        <h4>Music Production</h4>
+        <p>Sound engineering and production. Building something layered and coherent from nothing — a different kind of systems thinking where constraints become the creative fuel.</p>
       </div>
-      <div class="hobby-card reveal">
-        <div class="hobby-icon">📚</div>
-        <div>
-          <h4>Continuous Learning</h4>
-          <p>Staying current in distributed systems, emerging technologies, and new patterns in platform engineering and product leadership.</p>
-        </div>
+      <div class="p-card reveal">
+        <div class="p-icon">🤖</div>
+        <h4>Building with AI</h4>
+        <p>Actively developing real software with Claude. There's no faster way to build genuine AI product intuition than to actually ship something yourself — not just read about it.</p>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="section-eyebrow"><span>Get In Touch</span></div>
-    <h2>Let's Work Together</h2>
-    <div class="contact-grid">
-      <div class="contact-intro reveal">
-        <p>I'm currently <strong>open to new opportunities</strong> — Senior PM roles, technical product leadership, or anything in between where I can own complex platforms end-to-end.</p>
-        <p style="margin-top: 1.25rem;">Whether you're building a team or just want to connect, <strong>I'd love to hear from you.</strong></p>
-        <div class="contact-links" style="margin-top: 2rem;">
+    <div class="eyebrow"><span>Get In Touch</span></div>
+    <h2>Let's build something <em>worth shipping.</em></h2>
+    <div class="contact-layout">
+      <div class="reveal">
+        <p class="contact-intro">I'm actively looking for my next role — <strong>Senior PM, Director of Product, Head of Product</strong>, or any technically complex platform role where I can own something end-to-end.</p>
+        <p class="contact-intro" style="margin-top:1rem;">Especially interested in organizations where <strong>AI is genuinely changing how teams operate</strong> — not just a feature on the roadmap.</p>
+        <div class="contact-links">
           <a href="https://www.linkedin.com/in/coryharrah/" target="_blank" class="contact-item">
             <div class="contact-icon">💼</div>
-            <div class="contact-detail">
-              <div class="contact-label">LinkedIn</div>
-              <div class="contact-value">linkedin.com/in/coryharrah</div>
-            </div>
+            <div><div class="contact-label">LinkedIn</div><div class="contact-value">linkedin.com/in/coryharrah</div></div>
           </a>
           <a href="CoryHarrahResume.pdf" target="_blank" download class="contact-item">
             <div class="contact-icon">📄</div>
-            <div class="contact-detail">
-              <div class="contact-label">Resume</div>
-              <div class="contact-value">Download PDF</div>
-            </div>
+            <div><div class="contact-label">Resume</div><div class="contact-value">Download PDF</div></div>
           </a>
         </div>
       </div>
       <div class="reveal">
         <form action="https://formspree.io/f/mjgezblp" method="POST" id="contact-form">
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Jane Smith" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" placeholder="jane@company.com" required />
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Tell me about the opportunity..." required></textarea>
-          </div>
+          <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="Jane Smith" required /></div>
+          <div class="form-group"><label for="email">Your Email</label><input type="email" id="email" name="email" placeholder="jane@company.com" required /></div>
+          <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Tell me about the opportunity..." required></textarea></div>
           <button type="submit" class="form-btn">Send Message →</button>
-          <p id="form-success" style="display:none; margin-top:1rem; color: #a8e6cf; font-size:0.88rem;">✓ Message sent! I'll get back to you soon.</p>
-          <p id="form-error" style="display:none; margin-top:1rem; color: #ffb3b3; font-size:0.88rem;">Something went wrong. Please try again.</p>
+          <p id="form-success" style="display:none;margin-top:1rem;color:var(--copper);font-size:0.88rem;">✓ Message sent! I'll get back to you soon.</p>
+          <p id="form-error" style="display:none;margin-top:1rem;color:#e07070;font-size:0.88rem;">Something went wrong. Please try again.</p>
         </form>
       </div>
     </div>
   </section>
 
   <footer>
-    <span>© 2026 Cory Harrah · Hayward, CA</span>
-    <span>Senior Product Manager — Open to Opportunities</span>
+    <span>© 2026 <span class="footer-accent">Cory Harrah</span> · Hayward, CA</span>
+    <span>Senior Product Manager — <span class="footer-accent">Open to Opportunities</span></span>
   </footer>
 
-    <script>
-    // Only apply animation if JS loads successfully — content visible by default otherwise
+  <script>
     const reveals = document.querySelectorAll('.reveal');
     reveals.forEach(el => el.classList.add('animate'));
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
       });
-    }, { threshold: 0.05 });
+    }, { threshold: 0.06 });
     reveals.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight) {
-        el.classList.add('visible');
-      } else {
-        observer.observe(el);
-      }
+      if (el.getBoundingClientRect().top < window.innerHeight) { el.classList.add('visible'); }
+      else { observer.observe(el); }
     });
 
-    // Contact form handler
     const form = document.getElementById('contact-form');
     if (form) {
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const btn = form.querySelector('.form-btn');
-        btn.textContent = 'Sending...';
-        btn.disabled = true;
+        btn.textContent = 'Sending...'; btn.disabled = true;
         try {
-          const res = await fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-          });
+          const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
           if (res.ok) {
             form.reset();
             document.getElementById('form-success').style.display = 'block';
             btn.textContent = 'Sent ✓';
           } else {
             document.getElementById('form-error').style.display = 'block';
-            btn.textContent = 'Send Message →';
-            btn.disabled = false;
+            btn.textContent = 'Send Message →'; btn.disabled = false;
           }
         } catch {
           document.getElementById('form-error').style.display = 'block';
-          btn.textContent = 'Send Message →';
-          btn.disabled = false;
+          btn.textContent = 'Send Message →'; btn.disabled = false;
         }
       });
     }
