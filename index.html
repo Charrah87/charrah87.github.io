@@ -559,6 +559,29 @@
       .edu-row, .personality-grid, .add-exp-row { grid-template-columns: 1fr; }
       footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
     }
+
+    @media (max-width: 700px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.9rem 1.25rem;
+      }
+      .nav-logo { font-size: 1.05rem; }
+      .nav-links {
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto;
+        column-gap: 1.2rem;
+        row-gap: 0.55rem;
+        align-items: center;
+        justify-content: start;
+      }
+      /* Contact + Resume drop to row 2 */
+      .nav-links li:nth-child(4) { grid-column: 1; grid-row: 2; }
+      .nav-links li:nth-child(5) { grid-column: 2; grid-row: 2; }
+    }
   </style>
 </head>
 <body>
@@ -584,7 +607,7 @@
       </div>
       <h1>Senior Product<br>Manager &amp; <em>Platform<br>Strategist.</em></h1>
       <p class="hero-bio">
-        Nine years growing from production support to platform ownership. I lead with <strong>technical depth, a builder's instinct, and a relentless bias toward shipping.</strong> My teams deliver early, my platforms scale cleanly, and I thrive in organizations where AI is fundamentally changing how work gets done — not just what tools are in the stack.
+        Nine years growing from production support to platform ownership. I lead with <strong>technical depth, a builder's instinct, and a bias toward shipping.</strong> My teams deliver early, my platforms scale cleanly, and I do my best work in roles where technical context and product judgment are equally valued.
       </p>
       <div class="hero-cta">
         <a href="#experience" class="btn-primary">See My Work</a>
@@ -644,13 +667,13 @@
 
   <!-- AI WORKFLOW -->
   <section id="ai-workflow">
-    <div class="eyebrow"><span>AI-Native Approach</span></div>
-    <h2>AI isn't a tool I use.<br><em>It's how I work.</em></h2>
+    <div class="eyebrow"><span>AI In My Workflow</span></div>
+    <h2>AI is part of how I work —<br><em>and a genuine accelerant.</em></h2>
     <div class="ai-layout">
       <div>
-        <p class="ai-statement">The best product orgs in the next five years won't just adopt AI tools — they'll redesign how teams <em>think, plan, and ship</em> around AI capabilities.</p>
-        <p class="ai-body">I use <strong>Claude, ChatGPT, and Copilot</strong> daily — across PRD drafting, feature design, sprint planning, data consistency checks, and documentation. AI eliminates the friction between having an idea and turning it into something your engineers can act on today.</p>
-        <p class="ai-body" style="margin-top:1rem;">I'm targeting companies where AI adoption is a <strong>competitive operating decision</strong> — not a checkbox or a chatbot tacked onto an existing workflow.</p>
+        <p class="ai-statement">When applied to the right problems, AI tools are a real force multiplier — for speed, clarity, and the quality of what you hand off to engineering.</p>
+        <p class="ai-body">I use <strong>Claude, ChatGPT, and Copilot</strong> across PRD drafting, feature design, sprint planning, and documentation. These tools have meaningfully accelerated my output — and I bring that same mindset to any team I join.</p>
+        <p class="ai-body" style="margin-top:1rem;">I'm particularly energized by orgs that are <strong>thoughtfully building AI into how they operate</strong>, not just the product roadmap.</p>
         <div class="building-bar">
           <div class="building-pill">🔧 Building</div>
           <div class="building-body"><strong>AI-Powered Video Editor</strong> — an application built with Claude that ingests source video and music files and autonomously generates effects-enhanced, YouTube-ready montages. Real AI product development from concept to working software.</div>
@@ -659,19 +682,19 @@
       <div class="ai-cards reveal">
         <div class="ai-card">
           <div class="ai-card-icon">📋</div>
-          <div><div class="ai-card-title">PRD & Documentation</div><div class="ai-card-desc">Draft, iterate, and sharpen product requirements — reducing cycle time from days to hours without losing precision.</div></div>
+          <div><div class="ai-card-title">PRD & Documentation</div><div class="ai-card-desc">Draft, refine, and sharpen product requirements faster — a first pass that would've taken half a day now takes an hour.</div></div>
         </div>
         <div class="ai-card">
           <div class="ai-card-icon">🗓️</div>
-          <div><div class="ai-card-title">Sprint Planning</div><div class="ai-card-desc">AI-assisted backlog refinement and capacity modeling — the discipline behind taking a team from 30 to 60+ story points.</div></div>
+          <div><div class="ai-card-title">Sprint Planning</div><div class="ai-card-desc">Backlog refinement and capacity checks move faster with AI assist. More time on the judgment calls, less on the mechanical parts.</div></div>
         </div>
         <div class="ai-card">
           <div class="ai-card-icon">🔍</div>
-          <div><div class="ai-card-title">Feature Design</div><div class="ai-card-desc">Rapidly prototype feature logic and data models — closing the gap between idea and engineering-ready spec.</div></div>
+          <div><div class="ai-card-title">Feature Design</div><div class="ai-card-desc">Faster iteration on feature logic and edge cases — useful for closing the gap between rough idea and something engineering can actually react to.</div></div>
         </div>
         <div class="ai-card">
           <div class="ai-card-icon">🏗️</div>
-          <div><div class="ai-card-title">Independent Development</div><div class="ai-card-desc">This site was built end-to-end using Claude as a development collaborator — concept to production, no outside help.</div></div>
+          <div><div class="ai-card-title">Building This Site</div><div class="ai-card-desc">This site was built with Claude as a collaborator — I directed the design and copy, Claude handled the code. A real example of what the tool/human loop looks like in practice.</div></div>
         </div>
       </div>
     </div>
@@ -702,7 +725,7 @@
           <li>Negotiated vendor consolidation delivering <strong>$1.3M in operating cost savings</strong> over 3 years while expanding data coverage across all brands.</li>
           <li>Transformed a 300+ item backlog into a curated 35–45 item system — reducing sprint removals from 20+ to &lt;5 and <strong>doubling team velocity</strong> to 60+ story points per sprint.</li>
           <li>Launched API endpoints for enhanced SEO indexing; implemented <strong>Datadog observability dashboards</strong> for SLA and latency monitoring.</li>
-          <li>Integrated <strong>Claude, ChatGPT, and Copilot</strong> into PRD authoring, feature design, and sprint planning across the full product cycle.</li>
+          <li>Used AI tools (Claude, ChatGPT, Copilot) in PRD authoring, feature design, and sprint planning — reducing drafting time and improving cross-team clarity on requirements.</li>
         </ul>
         <div class="exp-tags">
           <span class="exp-tag">API Platform</span><span class="exp-tag">AWS</span><span class="exp-tag">Enterprise Scale</span><span class="exp-tag">Vendor Negotiation</span><span class="exp-tag">Datadog</span><span class="exp-tag">AI Workflow</span><span class="exp-tag">Cost Optimization</span>
@@ -787,7 +810,7 @@
       <div class="p-card reveal">
         <div class="p-icon">🤖</div>
         <h4>Building with AI</h4>
-        <p>Actively developing real software with Claude. There's no faster way to build genuine AI product intuition than to actually ship something yourself — not just read about it.</p>
+        <p>Actively building real software with Claude — a video editor that generates YouTube-ready montages from source files. The best way to develop product intuition for AI is to actually ship something with it.</p>
       </div>
     </div>
   </section>
@@ -799,7 +822,7 @@
     <div class="contact-layout">
       <div class="reveal">
         <p class="contact-intro">I'm actively looking for my next role — <strong>Senior PM, Director of Product, Head of Product</strong>, or any technically complex platform role where I can own something end-to-end.</p>
-        <p class="contact-intro" style="margin-top:1rem;">Especially interested in organizations where <strong>AI is genuinely changing how teams operate</strong> — not just a feature on the roadmap.</p>
+        <p class="contact-intro" style="margin-top:1rem;">Especially interested in organizations where <strong>AI is a real part of how teams work.</strong></p>
         <div class="contact-links">
           <a href="https://www.linkedin.com/in/coryharrah/" target="_blank" class="contact-item">
             <div class="contact-icon">💼</div>
