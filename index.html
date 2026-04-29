@@ -52,6 +52,7 @@
       font-size: 1.2rem;
       color: var(--warm-white);
       text-decoration: none;
+      flex-shrink: 0;
     }
     .nav-logo span { color: var(--copper); }
     .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
@@ -99,10 +100,28 @@
       background: radial-gradient(ellipse, rgba(200,121,65,0.055) 0%, transparent 62%);
       pointer-events: none;
     }
-    .hero-inner {
+    .hero-layout {
       position: relative;
       z-index: 1;
-      max-width: 800px;
+      display: flex;
+      align-items: center;
+      gap: 5rem;
+      width: 100%;
+      max-width: 1100px;
+    }
+    .hero-inner {
+      flex: 1;
+      min-width: 0;
+    }
+    .hero-photo {
+      width: 260px;
+      height: 310px;
+      border-radius: 6px;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid var(--border2);
+      flex-shrink: 0;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
     }
     .hero-eyebrow {
       display: flex;
@@ -547,31 +566,41 @@
       nav { padding: 1rem 1.5rem; }
       #hero { padding: 8rem 1.5rem 4rem; }
       section { padding: 4rem 1.5rem; }
+      .hero-layout { flex-direction: column-reverse; gap: 2.5rem; align-items: flex-start; }
+      .hero-photo { width: 100%; max-width: 260px; height: 240px; }
       .about-layout, .ai-layout, .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
       .edu-row, .personality-grid, .add-exp-row { grid-template-columns: 1fr; }
       footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 640px) {
       nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.75rem;
         padding: 0.9rem 1.25rem;
+        flex-wrap: wrap;
+        gap: 0.6rem;
       }
       .nav-logo { font-size: 1.05rem; }
       .nav-links {
         width: 100%;
-        display: grid;
-        grid-template-columns: auto auto auto;
-        grid-template-rows: auto auto;
-        column-gap: 1.2rem;
-        row-gap: 0.55rem;
-        align-items: center;
-        justify-content: start;
+        gap: 0.9rem 1.4rem;
+        flex-wrap: wrap;
       }
-      .nav-links li:nth-child(4) { grid-column: 1; grid-row: 2; }
-      .nav-links li:nth-child(5) { grid-column: 2; grid-row: 2; }
+      .hero-layout { flex-direction: column; align-items: center; text-align: center; }
+      .hero-photo {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-position: center top;
+      }
+      .hero-eyebrow { justify-content: center; }
+      .hero-bio { max-width: 100%; }
+      .hero-cta { justify-content: center; }
+    }
+
+    @media (max-width: 400px) {
+      h1 { font-size: 2.2rem; }
+      .nav-links { gap: 0.6rem 1rem; }
+      .exp-card { padding: 1.5rem 1.2rem; }
     }
   </style>
 </head>
@@ -591,22 +620,25 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-glow"></div>
-    <div class="hero-inner">
-      <div class="hero-eyebrow">
-        <div class="hero-dot"></div>
-        <span>Senior Product Manager &nbsp;·&nbsp; Platform &amp; API Systems &nbsp;·&nbsp; Hayward, CA</span>
+    <div class="hero-layout">
+      <div class="hero-inner">
+        <div class="hero-eyebrow">
+          <div class="hero-dot"></div>
+          <span>Senior Product Manager &nbsp;·&nbsp; Platform &amp; API Systems &nbsp;·&nbsp; Hayward, CA</span>
+        </div>
+        <h1>Built on systems.<br><em>Focused on product.</em></h1>
+        <p class="hero-bio">
+          I'm a Senior Product Manager with a decade at Anywhere Real Estate. I started in production support — diagnosing real bugs across APIs, databases, and web platforms used by thousands of real estate agents — and grew into owning the roadmap for a <strong>greenfield enterprise API platform handling 20M+ requests per day per API across five national brands.</strong>
+        </p>
+        <p class="hero-bio" style="margin-top:-1rem;">
+          I manage two engineering teams, run structured sprint cycles, and make the architectural and scope decisions that keep complex systems reliable at scale. My background means I read the technical details and <strong>make product decisions with real production context behind them.</strong>
+        </p>
+        <div class="hero-cta">
+          <a href="#experience" class="btn-primary">View Experience</a>
+          <a href="#contact" class="btn-ghost">Contact Me</a>
+        </div>
       </div>
-      <h1>Building reliable<br>software platforms<br><em>from production systems<br>to product leadership.</em></h1>
-      <p class="hero-bio">
-        I'm a Senior Product Manager with experience leading platform and application development across large-scale systems. Over the past decade I've worked across the full software lifecycle — from investigating production issues in a web application used by thousands of real estate agents to <strong>owning the roadmap and delivery of an enterprise API platform handling more than 20 million requests per day.</strong>
-      </p>
-      <p class="hero-bio" style="margin-top:-1rem;">
-        My work centers on building and improving complex systems. I lead cross-functional teams, manage product roadmaps, and guide development through structured sprint cycles while working closely with engineers on <strong>architecture, integrations, and data pipelines.</strong> I focus on building reliable products that scale and making technical decisions that hold up in production.
-      </p>
-      <div class="hero-cta">
-        <a href="#experience" class="btn-primary">View Experience</a>
-        <a href="#contact" class="btn-ghost">Contact Me</a>
-      </div>
+      <img src="ProfPhoto.JPEG" alt="Cory Harrah" class="hero-photo" />
     </div>
     <div class="hero-rule"></div>
   </section>
@@ -617,10 +649,10 @@
     <h2>Built from the <em>system up.</em></h2>
     <div class="about-layout">
       <div class="about-text reveal">
-        <p>My career started inside a production environment. I joined Zip Realty shortly after the launch of the Zap platform, a web application used by thousands of agents across national real estate brands. My role was to investigate issues reported by users, reproduce bugs, and work with engineers to diagnose root causes across <strong>APIs, databases, and application code.</strong></p>
-        <p>As I gained experience, my role expanded beyond troubleshooting. I began identifying patterns across issues, documenting system behaviors, and working with product and engineering teams to design solutions that would prevent problems from happening again. Over time I became the bridge between support, engineering, and product — helping translate real user problems into <strong>improvements to the platform.</strong></p>
+        <p>My career started inside a production environment. I joined Zip Realty shortly after the launch of the Zap platform — a web application used by thousands of agents across national real estate brands. My job was to investigate issues, reproduce bugs, and work with engineers to trace root causes across <strong>APIs, databases, and application code.</strong></p>
+        <p>Over time I became the bridge between support, engineering, and product — translating real user problems into platform improvements. That work led to managing the team, then to owning the products that team supported, then to building a greenfield platform from scratch.</p>
         <div class="pull-quote">The most important question in any system issue is simple: what problem are we actually trying to solve?</div>
-        <p>That perspective shaped how I approach product management today. I focus on understanding systems deeply — how applications, APIs, and data pipelines interact — and making decisions that improve <strong>reliability, scalability, and user experience</strong> at the same time.</p>
+        <p>That perspective shaped how I approach product management today. I focus on understanding systems deeply — how applications, APIs, and data pipelines interact — and making decisions that improve <strong>reliability, scalability, and user experience</strong> at the same time. I use AI tools daily to move faster and work through complexity — but I treat them as a starting point, not a final answer.</p>
       </div>
       <div class="skills-wrap reveal">
         <div class="skill-row">
@@ -648,7 +680,13 @@
           </div>
         </div>
         <div class="skill-row">
-          <div class="skill-row-label">Tools & Process</div>
+          <div class="skill-row-label">AI Tools</div>
+          <div class="skill-tags">
+            <span class="tag">GitHub Copilot</span><span class="tag">ChatGPT</span><span class="tag">Claude</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-row-label">Tools</div>
           <div class="skill-tags">
             <span class="tag">Postman</span><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Datadog</span><span class="tag">MongoDB</span><span class="tag">Snowflake</span><span class="tag">DBVisualizer</span><span class="tag">Jira</span><span class="tag">Figma</span><span class="tag">Tableau</span><span class="tag">Zendesk</span><span class="tag">ServiceNow</span>
           </div>
@@ -660,33 +698,33 @@
   <!-- AI WORKFLOW -->
   <section id="ai-workflow">
     <div class="eyebrow"><span>AI In My Workflow</span></div>
-    <h2>Using AI to improve <em>technical workflows.</em></h2>
+    <h2>Using AI to move <em>faster on real work.</em></h2>
     <div class="ai-layout">
       <div>
-        <p class="ai-statement">I approach AI tools the same way I approach engineering tools: useful when applied carefully and grounded in real system knowledge.</p>
-        <p class="ai-body">I use AI to accelerate research, documentation, and technical exploration. It helps break down complex integration problems, analyze system behavior, and prototype ideas quickly.</p>
-        <p class="ai-body" style="margin-top:1rem;">Because my background is in production systems and APIs, I treat AI outputs as a starting point rather than a final answer. The goal is to combine speed with real technical understanding.</p>
+        <p class="ai-statement">I use AI the same way I use any engineering tool: it's only as useful as the technical foundation behind it.</p>
+        <p class="ai-body">Since mid-2025 I've been using <strong>GitHub Copilot, ChatGPT, and Claude</strong> as regular parts of my workflow. Copilot for reviewing API mock changes in our QA environment before production approval. ChatGPT and Claude for analyzing large data sets, drafting PRDs, and handling the writing that used to eat hours — emails, documentation, stakeholder summaries.</p>
+        <p class="ai-body" style="margin-top:1rem;">Because I work in production systems, I don't treat AI output as final. I treat it as a fast first draft that I validate against real system context. That combination — speed plus accuracy — is what I'm always after.</p>
         <div class="building-bar">
           <div class="building-pill">Currently Building</div>
-          <div class="building-body">Developer tooling experiments, automation workflows, and personal software projects.</div>
+          <div class="building-body">Developer tooling experiments, <strong>automation workflows</strong>, and personal software projects using AI-assisted development.</div>
         </div>
       </div>
       <div class="ai-cards reveal">
         <div class="ai-card">
           <div class="ai-card-icon">🧠</div>
-          <div><div class="ai-card-title">System Analysis</div><div class="ai-card-desc">Breaking down complex integrations and documenting how systems interact.</div></div>
+          <div><div class="ai-card-title">Data Analysis</div><div class="ai-card-desc">Analyzing large data sets that would take hours in a spreadsheet — done in minutes with the right prompt and context.</div></div>
         </div>
         <div class="ai-card">
-          <div class="ai-card-icon">⚡</div>
-          <div><div class="ai-card-title">Rapid Prototyping</div><div class="ai-card-desc">Testing ideas and workflows with AI-assisted development.</div></div>
+          <div class="ai-card-icon">📝</div>
+          <div><div class="ai-card-title">Documentation & PRDs</div><div class="ai-card-desc">Drafting product requirements, stakeholder summaries, and technical documentation significantly faster.</div></div>
         </div>
         <div class="ai-card">
           <div class="ai-card-icon">⚙️</div>
-          <div><div class="ai-card-title">Process Automation</div><div class="ai-card-desc">Automating documentation, reporting, and operational tasks.</div></div>
+          <div><div class="ai-card-title">Code Review Support</div><div class="ai-card-desc">Using GitHub Copilot to review API mock changes in QA before approving for production.</div></div>
         </div>
         <div class="ai-card">
           <div class="ai-card-icon">🔧</div>
-          <div><div class="ai-card-title">Developer Productivity</div><div class="ai-card-desc">Exploring tools that reduce friction in engineering workflows.</div></div>
+          <div><div class="ai-card-title">Workflow Automation</div><div class="ai-card-desc">Automating repetitive operational tasks — reporting, formatting, and process documentation.</div></div>
         </div>
       </div>
     </div>
@@ -705,23 +743,23 @@
           <div class="exp-date">2023 — 2026</div>
         </div>
         <div class="exp-company">Anywhere Real Estate · Remote</div>
-        <p class="exp-summary">Responsible for product strategy and roadmap for the enterprise API platform powering five national real estate brands.</p>
+        <p class="exp-summary">Owned product strategy and roadmap for the greenfield enterprise API platform powering five national real estate brands, managing two engineering teams across ETL and API development.</p>
         <div class="exp-stats">
-          <div class="stat-chip"><div class="stat-chip-num">20M+</div><div class="stat-chip-label">API requests per day</div></div>
-          <div class="stat-chip"><div class="stat-chip-num">500+</div><div class="stat-chip-label">MLS data integrations</div></div>
+          <div class="stat-chip"><div class="stat-chip-num">20M+</div><div class="stat-chip-label">requests per day per API</div></div>
+          <div class="stat-chip"><div class="stat-chip-num">~80M</div><div class="stat-chip-label">listings in platform scope</div></div>
           <div class="stat-chip"><div class="stat-chip-num">5</div><div class="stat-chip-label">National brand platforms</div></div>
-          <div class="stat-chip"><div class="stat-chip-num">$1.3M</div><div class="stat-chip-label">Vendor savings</div></div>
+          <div class="stat-chip"><div class="stat-chip-num">$1.3M</div><div class="stat-chip-label">Vendor savings over 3 years</div></div>
         </div>
         <ul class="exp-bullets">
           <li>Owned product strategy and roadmap for the enterprise API platform supporting <strong>Century 21, Coldwell Banker, Sotheby's International Realty, ERA, and Better Homes & Gardens</strong></li>
-          <li>Led cross-functional engineering teams delivering platform reliability and new API capabilities at <strong>sub-200ms P95 latency</strong></li>
+          <li>Managed two engineering teams — an <strong>ETL team and an API development team</strong> with a tech lead each — delivering platform reliability and new API capabilities at <strong>sub-100ms P95 latency</strong></li>
           <li>Directed the migration of the national real estate data provider across five engineering teams with <strong>zero downtime</strong> — launched September 15, 2025, a full quarter ahead of the December 31 deadline</li>
           <li>Negotiated vendor consolidation delivering <strong>$1.3M in operating cost savings</strong> over three years while expanding data coverage across all brands</li>
-          <li>Managed data pipelines integrating <strong>500+ MLS data feeds</strong> into the platform ecosystem</li>
-          <li>Implemented Datadog observability across API endpoints; designed XML sitemaps and robots.txt as a self-initiated SEO initiative to improve search indexing across brand websites</li>
+          <li>Managed data pipelines integrating <strong>500+ MLS data feeds</strong> and approximately 80M listings into the platform ecosystem</li>
+          <li>Implemented Datadog observability across API endpoints; used <strong>GitHub Copilot, ChatGPT, and Claude</strong> to accelerate documentation, data analysis, and QA workflows</li>
         </ul>
         <div class="exp-tags">
-          <span class="exp-tag">API Platforms</span><span class="exp-tag">Data Pipelines</span><span class="exp-tag">Platform Reliability</span><span class="exp-tag">Observability</span><span class="exp-tag">Vendor Negotiation</span><span class="exp-tag">AWS</span>
+          <span class="exp-tag">API Platforms</span><span class="exp-tag">Data Pipelines</span><span class="exp-tag">Platform Reliability</span><span class="exp-tag">Observability</span><span class="exp-tag">Vendor Negotiation</span><span class="exp-tag">AWS</span><span class="exp-tag">AI-Assisted Workflows</span>
         </div>
       </div>
 
@@ -732,18 +770,18 @@
           <div class="exp-date">2022 — 2023</div>
         </div>
         <div class="exp-company">Anywhere Real Estate</div>
-        <p class="exp-summary">Managed the enterprise API suite responsible for search, agent, office, and property data powering consumer real estate platforms.</p>
+        <p class="exp-summary">Managed the greenfield API suite responsible for search, agent, office, and property data powering consumer real estate platforms — the foundation that became the Senior PM platform build.</p>
         <div class="exp-stats">
           <div class="stat-chip"><div class="stat-chip-num">35+</div><div class="stat-chip-label">Systemic platform issues resolved</div></div>
           <div class="stat-chip"><div class="stat-chip-num">250 → 40</div><div class="stat-chip-label">Backlog reduction</div></div>
         </div>
         <ul class="exp-bullets">
-          <li>Coordinated development across multiple engineering teams responsible for <strong>API infrastructure and data pipelines</strong></li>
+          <li>Took ownership of a <strong>greenfield API platform</strong> with no established processes — built intake, prioritization, and sprint structure from scratch across multiple engineering teams</li>
           <li>Built structured intake and prioritization systems for platform work and support issues — reduced backlog from <strong>250+ items to under 40</strong></li>
-          <li>Identified and resolved <strong>35+ systemic production issues</strong> using operational support data</li>
+          <li>Identified and resolved <strong>35+ systemic production issues</strong> using operational support data, working directly with engineering leads on root cause and permanent fixes</li>
         </ul>
         <div class="exp-tags">
-          <span class="exp-tag">API Products</span><span class="exp-tag">Platform Systems</span><span class="exp-tag">Engineering Collaboration</span>
+          <span class="exp-tag">API Products</span><span class="exp-tag">Platform Systems</span><span class="exp-tag">Engineering Collaboration</span><span class="exp-tag">Greenfield Build</span>
         </div>
       </div>
 
@@ -754,7 +792,7 @@
           <div class="exp-date">2020 — 2022</div>
         </div>
         <div class="exp-company">Anywhere Real Estate</div>
-        <p class="exp-summary">Led a technical support team responsible for diagnosing production issues across APIs, databases, and web platforms.</p>
+        <p class="exp-summary">Led the technical support team responsible for diagnosing production issues across APIs, databases, and web platforms — and owned the search logic and listing display for agent-facing applications.</p>
         <div class="exp-stats">
           <div class="stat-chip"><div class="stat-chip-num">90 → 30</div><div class="stat-chip-label">Daily tickets eliminated</div></div>
           <div class="stat-chip"><div class="stat-chip-num">5d → 24h</div><div class="stat-chip-label">Average resolution time</div></div>
@@ -762,11 +800,11 @@
         <ul class="exp-bullets">
           <li>Reduced daily ticket volume from <strong>90 to 30</strong> by identifying and eliminating recurring platform defects at the root cause — not through triage</li>
           <li>Reduced average resolution time from <strong>five days to one day</strong></li>
+          <li>Owned <strong>search logic and listing display</strong> for agent-facing real estate platforms — defined ranking behavior, filter logic, and data display requirements in collaboration with engineering</li>
           <li>Built documentation and troubleshooting workflows used across support and engineering teams</li>
-          <li>Worked closely with engineering teams to resolve systemic application issues</li>
         </ul>
         <div class="exp-tags">
-          <span class="exp-tag">Operations</span><span class="exp-tag">Support Engineering</span><span class="exp-tag">Platform Stability</span>
+          <span class="exp-tag">Operations</span><span class="exp-tag">Support Engineering</span><span class="exp-tag">Platform Stability</span><span class="exp-tag">Search Logic</span>
         </div>
       </div>
 
