@@ -29,7 +29,7 @@
       background: var(--bg);
       color: var(--text);
       font-family: 'Instrument Sans', sans-serif;
-      font-size: 17px;
+      font-size: 18px;
       line-height: 1.8;
       overflow-x: hidden;
     }
@@ -89,7 +89,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 9rem 4.5rem 6rem;
+      padding: 9rem max(4.5rem, calc(50% - 550px)) 6rem;
       position: relative;
       overflow: hidden;
     }
@@ -206,13 +206,15 @@
     .btn-ghost:hover { border-color: var(--border2); color: var(--copper); }
     .hero-rule {
       position: absolute;
-      bottom: 0; left: 4.5rem; right: 4.5rem;
+      bottom: 0;
+      left: max(4.5rem, calc(50% - 550px));
+      right: max(4.5rem, calc(50% - 550px));
       height: 1px;
       background: linear-gradient(90deg, var(--border2), transparent 55%);
     }
 
     /* ── SECTIONS ── */
-    section { padding: 6rem 4.5rem; position: relative; z-index: 1; }
+    section { padding: 6rem max(4.5rem, calc(50% - 550px)); position: relative; z-index: 1; }
     .eyebrow {
       display: flex;
       align-items: center;
@@ -697,7 +699,7 @@
     /* ── FOOTER ── */
     footer {
       background: #090806;
-      padding: 2rem 4.5rem;
+      padding: 2rem max(4.5rem, calc(50% - 550px));
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -717,6 +719,8 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
       nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.4rem; }
+      .jr-detail-float, .jr-connector-dot, .jr-connector-line { display: none; }
       #hero { padding: 8rem 1.5rem 4rem; }
       section { padding: 4rem 1.5rem; }
       .hero-layout { flex-direction: column-reverse; gap: 2.5rem; align-items: flex-start; }
@@ -726,6 +730,12 @@
       .jr-body { grid-template-columns: 1fr; }
       .jr-panel-body { grid-template-columns: 1fr; }
       footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+
+    @media (max-width: 800px) {
+      nav { flex-wrap: wrap; gap: 0.4rem; padding: 0.85rem 1.5rem; }
+      .nav-links { width: 100%; gap: 0.8rem 1.2rem; flex-wrap: wrap; }
+      #hero { padding-top: 9rem; }
     }
 
     @media (max-width: 640px) {
@@ -739,12 +749,21 @@
       .hero-cta { justify-content: center; }
       .edu-card { max-width: 100%; }
       .jr-btn-grid { grid-template-columns: 1fr 1fr; }
+      /* Job Radar header: hide status pill and tighten spacing so title isn't cut off */
+      .jr-status-pill { display: none; }
+      .jr-header { gap: 0.6rem; padding: 0.85rem 1.2rem; }
+      .jr-body-left, .jr-body-right { padding: 1.1rem 1.2rem; }
+      .jr-panel-column .jr-panel-body { padding: 1.1rem 1.2rem; }
     }
 
     @media (max-width: 400px) {
       h1 { font-size: 2.2rem; }
       .nav-links { gap: 0.6rem 1rem; }
       .exp-card { padding: 1.5rem 1.2rem; }
+      .jr-header { padding: 0.75rem 1rem; gap: 0.5rem; }
+      .jr-title { font-size: 1rem; }
+      .jr-github-btn { padding: 0.28rem 0.65rem; font-size: 0.65rem; }
+      .jr-expand-btn { width: 26px; height: 26px; }
     }
 
     /* ── Screenshot row ── */
@@ -1222,7 +1241,6 @@
             <div class="jr-connector-line"></div>
             <div class="jr-detail-float">
               <div class="jr-detail-inner">
-                <div class="jr-detail-label">&#8627; Scoring Detail</div>
                 <img src="jr-detail.png" alt="Scoring Detail" style="width:100%; display:block; opacity:0.93;">
               </div>
             </div>
